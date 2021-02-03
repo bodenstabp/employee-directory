@@ -1,10 +1,14 @@
 .employee-card {
-  display: flex;
-  justify-content: center;
-  margin: 1rem;
+  background-color: #84B867;
+  width: 85vw;
+  height: 130px;
+  margin: 1rem 1rem 0.5rem;
   padding: 0.75rem;
-  border: 1px solid #656;
-  border-radius: 5px;
+  border: 2px solid #84B867;
+  box-shadow: 0px 0px 12px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 30px 0 30px 0;
+  cursor: pointer;
+  position: relative;
 }
 
 .employee-image {
@@ -12,26 +16,44 @@
   height: 100px;
   border-radius: 50px;
   margin: 0 1rem 0 0;
+  position: absolute;
+  top: 15px;
+  left: 20px;
 }
 
 .employee-info {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: space-evenly;
   align-items: start;
+  position: absolute;
+  top: 20px;
+  left: 150px;
 }
 
 h2 {
-  font-size: 1.5rem;
+  color: #41456B;
+  font-size: 1.4rem;
+  padding-bottom: 0.5rem;
 }
 
 h3 {
   font-size: 1rem;
-  font-weight: 200;
+  font-weight: 800;
+  padding-bottom: 0.2rem;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-  background-color: #a59582;
+  background-color: #84B867;
+  color: #444;
+  margin: auto;
+  width: 90vw;
 }
 
 header {
@@ -43,22 +65,38 @@ header {
 main {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
+  margin-bottom: 3rem;
 }
 
 h1 {
+  color: #5E67B8;
   margin: 1rem 0 1rem;
   font-size: 1.65rem;
+  font-weight: 600;
   text-align: center;
 }
 
 input[type=search] {
+  background-color: #5E67B8;
+  color: #eee;
   margin: 0.5rem;
   padding: 0.25rem;
+  padding-left: 1rem;
   width: 265px;
+  height: 44px;
   border: none;
-  border-radius: 5px;
+  border-radius: 3px;
   outline: none;
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+input::placeholder {
+  color: #eee;
+  font-weight: 600;
+  text-align: center;
 }
 
 .wrapper {
@@ -69,10 +107,8 @@ h3 {
   font-family: "Raleway", Arial, Helvetica, sans-serif;
 }
 
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+input[type=search] {
+  font-family: inherit;
 }
 
 /*# sourceMappingURL=main.css.map */

@@ -1,5 +1,14 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
 body{
-    background-color: rgb(165, 149, 130);
+    background-color: $tertiary-color-three;
+    color: $secondary-color;
+    margin: auto;
+    width: 90vw;
 }
 
 header{
@@ -11,5 +20,7 @@ header{
 main{
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
+    margin-bottom: 3rem;
 }
