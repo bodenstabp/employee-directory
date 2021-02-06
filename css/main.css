@@ -1,24 +1,23 @@
 .employee-card {
-  background-color: #84B867;
-  width: 85vw;
-  height: 130px;
-  margin: 1rem 1rem 0.5rem;
+  background-color: #efe2ba;
+  width: 350px;
+  height: 150px;
   padding: 0.75rem;
-  border: 2px solid #84B867;
-  box-shadow: 0px 0px 12px 1px rgba(0, 0, 0, 0.2);
-  border-radius: 30px 0 30px 0;
+  box-shadow: 0px 0px 12px 1px rgba(0, 0, 0, 0.3);
+  border-radius: 10px 18px;
   cursor: pointer;
   position: relative;
+  overflow: hidden;
 }
 
 .employee-image {
-  width: 100px;
-  height: 100px;
-  border-radius: 50px;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
   margin: 0 1rem 0 0;
   position: absolute;
   top: 15px;
-  left: 20px;
+  left: 15px;
 }
 
 .employee-info {
@@ -32,15 +31,17 @@
 }
 
 h2 {
-  color: #41456B;
+  color: #f13c20;
   font-size: 1.4rem;
   padding-bottom: 0.5rem;
+  letter-spacing: 1.5px;
 }
 
 h3 {
+  color: #4056a1;
   font-size: 1rem;
   font-weight: 800;
-  padding-bottom: 0.2rem;
+  padding-bottom: 1rem;
 }
 
 * {
@@ -50,55 +51,97 @@ h3 {
 }
 
 body {
-  background-color: #84B867;
-  color: #444;
-  margin: auto;
-  width: 90vw;
+  background-color: #c5cbe3;
+  color: #d79922;
 }
 
 header {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  display: grid;
+  justify-content: center;
+  margin: auto;
+  max-width: calc(700px + 2.6rem);
 }
 
 main {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 350px);
+  grid-gap: 1.3rem;
   justify-content: center;
-  align-items: center;
-  margin-bottom: 3rem;
+  margin: 0.75rem;
+  max-width: 1200px;
 }
 
 h1 {
-  color: #5E67B8;
-  margin: 1rem 0 1rem;
+  color: #4056a1;
+  margin: 0.5rem 0 1rem;
   font-size: 1.65rem;
   font-weight: 600;
-  text-align: center;
+  letter-spacing: 1.8px;
+  align-self: center;
+  justify-self: center;
 }
 
 input[type=search] {
-  background-color: #5E67B8;
+  background-color: #d79922;
   color: #eee;
-  margin: 0.5rem;
+  justify-self: center;
   padding: 0.25rem;
   padding-left: 1rem;
   width: 265px;
   height: 44px;
   border: none;
-  border-radius: 3px;
+  border-radius: 10px 15px;
   outline: none;
   font-size: 1.2rem;
-  font-weight: 500;
+  font-weight: 600;
 }
 
 input::placeholder {
-  color: #eee;
+  color: #4056a1;
   font-weight: 600;
   text-align: center;
 }
 
+@media (min-width: 768px) {
+  header {
+    grid-template-columns: 1fr 1fr;
+    padding: 2rem 0;
+  }
+
+  header h1 {
+    margin: 0;
+    width: 350px;
+    justify-self: end;
+  }
+
+  input[type=search] {
+    width: 350px;
+  }
+
+  input::placeholder {
+    text-align: right;
+  }
+}
+@media (min-width: 1109px) {
+  header {
+    max-width: calc(1050px + 2.6rem);
+  }
+
+  header h1 {
+    width: 350px;
+    justify-self: start;
+  }
+
+  input[type=search] {
+    width: 350px;
+    justify-self: end;
+  }
+}
+@media (min-width: 1024px) {
+  main {
+    margin: auto;
+  }
+}
 .wrapper {
   font-family: "Montserrat", Arial, Helvetica, sans-serif;
 }

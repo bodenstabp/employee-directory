@@ -5,22 +5,24 @@
 }
 
 body{
-    background-color: $tertiary-color-three;
+    background-color: $tertiary-color-four;
     color: $secondary-color;
-    margin: auto;
-    width: 90vw;
 }
 
 header{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    display: grid;
+    justify-content: center;
+    margin: auto;
+    max-width: calc(700px + 2.6rem);
+
 }
 
 main{
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 350px);
+    grid-gap: 1.3rem;
     justify-content: center;
-    align-items: center;
-    margin-bottom: 3rem;
+    margin: 0.75rem;
+    max-width: 1200px;
+
 }

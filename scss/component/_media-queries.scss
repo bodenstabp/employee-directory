@@ -1,7 +1,49 @@
 @media (min-width: 768px) {
+    header{
+        // flex-direction: row;
+        // justify-content: space-between;
+        grid-template-columns: 1fr 1fr;
+        padding: 2rem 0;
+    }
 
+    header h1 {
+        margin: 0;
+        width: 350px;
+        justify-self: end;
+    }
+
+    input[type=search]{
+        width: 350px;
+    }
+
+    input::placeholder{
+        text-align: right;
+    }
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 1109px) {
+    header{
+        max-width: calc(1050px + 2.6rem);
+    }
+    
+    header h1 {
+        width: 350px;
+        justify-self: start;
+    }
 
+    input[type=search]{
+        width: 350px;
+        justify-self: end;
+    }
+}
+
+
+@media (min-width: 1024px) {
+    main{
+        margin: auto;
+    }
+
+    input[type=search]{
+        // width: 35vw;
+    }
 }
