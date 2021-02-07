@@ -1,9 +1,10 @@
-@media (min-width: 768px) {
+@media (min-width: 721px) {
     header{
         // flex-direction: row;
         // justify-content: space-between;
         grid-template-columns: 1fr 1fr;
-        padding: 2rem 0;
+        padding: 1rem 0 2rem;        
+        margin-bottom: 0;
     }
 
     header h1 {
@@ -21,9 +22,10 @@
     }
 }
 
-@media (min-width: 1109px) {
+@media (min-width: 1092px) {
     header{
         max-width: calc(1050px + 2.6rem);
+
     }
     
     header h1 {
@@ -38,12 +40,3 @@
 }
 
 
-@media (min-width: 1024px) {
-    main{
-        margin: auto;
-    }
-
-    input[type=search]{
-        // width: 35vw;
-    }
-}

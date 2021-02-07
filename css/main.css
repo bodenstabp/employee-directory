@@ -31,7 +31,7 @@
 }
 
 h2 {
-  color: #f13c20;
+  color: #4056a1;
   font-size: 1.4rem;
   padding-bottom: 0.5rem;
   letter-spacing: 1.5px;
@@ -39,9 +39,91 @@ h2 {
 
 h3 {
   color: #4056a1;
-  font-size: 1rem;
+  font-size: 0.8rem;
   font-weight: 800;
+  padding-bottom: 0.5rem;
+}
+
+.employee-overlay {
+  position: absolute;
+  background-color: #f13c20;
+  opacity: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  transition: opacity 0.5s;
+}
+.employee-overlay:hover {
+  opacity: 0.3;
+}
+
+.pop-up {
+  background-color: rgba(68, 68, 68, 0.3);
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.window {
+  position: fixed;
+  background-color: #efe2ba;
+  width: 360px;
+  height: 500px;
+  border-radius: 10px 18px;
+  display: flex;
+  justify-content: center;
+  align-items: start;
+}
+
+.close {
+  background-color: #efe2ba;
+  color: inherit;
+  border: none;
+  outline: none;
+  border-radius: 10px 12px;
+  padding: 0.25rem 0.5rem;
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 1.8rem;
+  cursor: pointer;
+  transition: background-color 0.5s;
+}
+.close:hover {
+  background-color: #d79922;
+}
+
+.window-image {
+  width: 220px;
+  height: 220px;
+  padding: 1rem;
+  border-radius: 50%;
+}
+
+.window-info {
+  text-align: center;
+}
+
+.window-info h2 {
   padding-bottom: 1rem;
+}
+
+.window-info p:nth-child(4) {
+  padding-bottom: 1.8rem;
+}
+
+.window-info p {
+  padding-bottom: 0.8rem;
+}
+
+.hidden {
+  display: none;
 }
 
 * {
@@ -52,13 +134,13 @@ h3 {
 
 body {
   background-color: #c5cbe3;
-  color: #d79922;
+  color: #4056a1;
 }
 
 header {
   display: grid;
   justify-content: center;
-  margin: auto;
+  margin: 1rem auto 3rem;
   max-width: calc(700px + 2.6rem);
 }
 
@@ -69,11 +151,13 @@ main {
   justify-content: center;
   margin: 0.75rem;
   max-width: 1200px;
+  margin: auto;
+  padding-bottom: 3rem;
 }
 
 h1 {
   color: #4056a1;
-  margin: 0.5rem 0 1rem;
+  margin: 0.5rem 0 2rem;
   font-size: 1.65rem;
   font-weight: 600;
   letter-spacing: 1.8px;
@@ -93,7 +177,7 @@ input[type=search] {
   border-radius: 10px 15px;
   outline: none;
   font-size: 1.2rem;
-  font-weight: 600;
+  font-weight: 500;
 }
 
 input::placeholder {
@@ -102,10 +186,11 @@ input::placeholder {
   text-align: center;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 721px) {
   header {
     grid-template-columns: 1fr 1fr;
-    padding: 2rem 0;
+    padding: 1rem 0 2rem;
+    margin-bottom: 0;
   }
 
   header h1 {
@@ -122,7 +207,7 @@ input::placeholder {
     text-align: right;
   }
 }
-@media (min-width: 1109px) {
+@media (min-width: 1092px) {
   header {
     max-width: calc(1050px + 2.6rem);
   }
@@ -135,11 +220,6 @@ input::placeholder {
   input[type=search] {
     width: 350px;
     justify-self: end;
-  }
-}
-@media (min-width: 1024px) {
-  main {
-    margin: auto;
   }
 }
 .wrapper {

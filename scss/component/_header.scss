@@ -1,6 +1,6 @@
 h1{
     color: $tertiary-color;
-    margin: 0.5rem 0 1rem;
+    margin: 0.5rem 0 2rem;
     font-size: 1.65rem;
     font-weight: 600;
     letter-spacing: 1.8px;
@@ -20,7 +20,7 @@ input[type=search]{
     border-radius: 10px 15px;
     outline: none;
     font-size: 1.2rem;
-    font-weight: 600;
+    font-weight: 500;
 }
 
 input::placeholder{
