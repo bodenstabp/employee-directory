@@ -1,6 +1,6 @@
 // Fetch data from API and map to page
 let apiReturn = () => {
-    return fetch('https://randomuser.me/api/?results=12&inc=picture, name, location, email, phone, dob &noinfo &nat=US?')
+    return fetch('https://randomuser.me/api/?results=12&inc=picture, name, location, email, phone, dob &noinfo &nat=US')
         .then(res => res.json())
         .then(res => res.results)
         .then(displayEmployees)
@@ -11,11 +11,14 @@ apiReturn()
 //Global Items
 const mainSection = document.querySelector('main');
 let employees = [];
+let currentIndex;
 const popUp = document.querySelector('.pop-up');
 let popUpContent = document.querySelector('.window-content');
 const popUpClose = document.querySelector('.close');
 const popUpPrevious = document.querySelector('.previous');
 const popUpNext = document.querySelector('.next');
+const searchBar = document.querySelector('#search-bar')
+let employeeNames;  
 
 function displayEmployees(employeeData) {
     employees = employeeData;
@@ -69,20 +72,7 @@ function displayPopUp(index){
     `
     popUp.classList.remove('hidden');
     popUpContent.innerHTML = popUpHTML;
-    
-    popUpNext.addEventListener('click', () => {
-        if (index <= 10) {
-            index++
-        displayPopUp(index)
-        }
-    })
-    popUpPrevious.addEventListener('click', () => {
-        if (index >=1) {
-            index--
-        displayPopUp(index)
-        }
-    })
-    
+    currentIndex = index 
 }
 
 //Open PopUp Window
@@ -96,9 +86,44 @@ mainSection.addEventListener('click', e => {
     }
 })
 
-// Cycle through Pop-Up Options
-
+ // Cycle Pop-Up Window
+    popUpNext.addEventListener('click', () => {
+        if (currentIndex <= 10) {
+            currentIndex++
+        }
+        else {
+            currentIndex = 0
+        }
+        displayPopUp(currentIndex);
+    });
+    popUpPrevious.addEventListener('click', () => {
+        if (currentIndex >=1) {
+            currentIndex--
+        }
+        else {
+            currentIndex = 11
+        }
+        displayPopUp(currentIndex);
+    });
+    
 
 // Close Pop-Up Window
-popUpClose.addEventListener('click', () => popUp.classList.add('hidden'))
+popUpClose.addEventListener('click', () => popUp.classList.add('hidden'));
 
+// Search Bar Functionality
+searchBar.addEventListener('keyup', (e) => {
+    const userValue = searchBar.value;
+    const value = userValue.toLowerCase();
+    const employees = mainSection.querySelectorAll('.employee-card');
+
+    employees.forEach(employee => {
+      let name = employee.querySelector('.employee-name');
+      if (name.textContent.toLowerCase().includes(value)) {
+        employee.style.display = '';
+      }
+      else {
+        employee.style.display = 'none';
+      }
+    })
+  })
+    
