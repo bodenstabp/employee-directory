@@ -59,7 +59,7 @@ h3 {
 }
 
 .pop-up {
-  background-color: rgba(68, 68, 68, 0.3);
+  background-color: rgba(68, 68, 68, 0.4);
   position: fixed;
   top: 0;
   right: 0;
@@ -81,7 +81,9 @@ h3 {
   align-items: start;
 }
 
-.close {
+.close,
+.previous,
+.next {
   background-color: #efe2ba;
   color: inherit;
   border: none;
@@ -89,20 +91,37 @@ h3 {
   border-radius: 10px 12px;
   padding: 0.25rem 0.5rem;
   position: absolute;
-  top: 1rem;
-  right: 1rem;
   font-size: 1.8rem;
   cursor: pointer;
   transition: background-color 0.5s;
 }
-.close:hover {
+.close:hover,
+.previous:hover,
+.next:hover {
   background-color: #d79922;
 }
 
+.close {
+  top: 1rem;
+  right: 1rem;
+}
+
+.previous {
+  top: 43%;
+  left: 1rem;
+}
+
+.next {
+  top: 43%;
+  right: 1rem;
+}
+
 .window-image {
+  display: block;
   width: 220px;
   height: 220px;
-  padding: 1rem;
+  padding: 1.5rem 1rem 1rem;
+  margin: auto;
   border-radius: 50%;
 }
 

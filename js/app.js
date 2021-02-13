@@ -1,16 +1,27 @@
+// Fetch data from API and map to page
+let apiReturn = () => {
+    return fetch('https://randomuser.me/api/?results=12&inc=picture, name, location, email, phone, dob &noinfo &nat=US?')
+        .then(res => res.json())
+        .then(res => res.results)
+        .then(displayEmployees)
+        .catch(err => console.log(err))
+}
+apiReturn()
+
 //Global Items
 const mainSection = document.querySelector('main');
 let employees = [];
 const popUp = document.querySelector('.pop-up');
 let popUpContent = document.querySelector('.window-content');
 const popUpClose = document.querySelector('.close');
+const popUpPrevious = document.querySelector('.previous');
+const popUpNext = document.querySelector('.next');
 
 function displayEmployees(employeeData) {
     employees = employeeData;
 
     let employeeHTML = '';
 
-    // Create HTML Markup from HTML
     employees.forEach((employee,index)=>{
         let name = employee.name;
         let email = employee.email;
@@ -18,7 +29,7 @@ function displayEmployees(employeeData) {
         let picture = employee.picture.large;
 
         employeeHTML += `
-            <div class="employee-card">
+            <div class="employee-card" data-index=${index}>
                 
                 <img class ="employee-image" src="${picture}" alt="Profile Picture">
                 <div class="employee-info">
@@ -38,14 +49,7 @@ function displayEmployees(employeeData) {
     mainSection.innerHTML = employeeHTML;
     })
 }
-// Fetch data from API and map to page
-let apiReturn = () => {
-    return fetch('https://randomuser.me/api/?results=12&inc=picture, name, location, email, phone, dob &noinfo &nat=US?')
-        .then(res => res.json())
-        .then(res => res.results)
-        .then(displayEmployees)
-}
-apiReturn()
+
 
 function displayPopUp(index){
     let {name, dob, phone, email, location: {city, street, state, postcode}, picture} = employees[index];
@@ -57,7 +61,7 @@ function displayPopUp(index){
     <div class="window-info">
         <h2><u>${name.first} ${name.last}</u></h2>
         <p class='email'>${email}</p>
-        <p class='address'>${city}</p>
+        <p class='address'>${city}, ${state}</p>
         <p>${phone}</p>
         <p>${street.number},${street.name}, ${state} ${postcode}</p>
         <p>Birthday: ${date.getMonth()}/${date.getDate()}/${date.getFullYear()}</p></p>
@@ -65,6 +69,20 @@ function displayPopUp(index){
     `
     popUp.classList.remove('hidden');
     popUpContent.innerHTML = popUpHTML;
+    
+    popUpNext.addEventListener('click', () => {
+        if (index <= 10) {
+            index++
+        displayPopUp(index)
+        }
+    })
+    popUpPrevious.addEventListener('click', () => {
+        if (index >=1) {
+            index--
+        displayPopUp(index)
+        }
+    })
+    
 }
 
 //Open PopUp Window
@@ -73,9 +91,13 @@ mainSection.addEventListener('click', e => {
         const card = e.target.closest('.employee-card');
         const index = card.getAttribute('data-index');
 
-        displayPopUp(1);
+        displayPopUp(index);
+        
     }
 })
+
+// Cycle through Pop-Up Options
+
 
 // Close Pop-Up Window
 popUpClose.addEventListener('click', () => popUp.classList.add('hidden'))
