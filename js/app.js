@@ -17,8 +17,7 @@ let popUpContent = document.querySelector('.window-content');
 const popUpClose = document.querySelector('.close');
 const popUpPrevious = document.querySelector('.previous');
 const popUpNext = document.querySelector('.next');
-const searchBar = document.querySelector('#search-bar')
-let employeeNames;  
+const searchBar = document.querySelector('#search-bar') 
 
 function displayEmployees(employeeData) {
     employees = employeeData;
@@ -81,8 +80,7 @@ mainSection.addEventListener('click', e => {
         const card = e.target.closest('.employee-card');
         const index = card.getAttribute('data-index');
 
-        displayPopUp(index);
-        
+        displayPopUp(index);  
     }
 })
 
@@ -112,13 +110,12 @@ popUpClose.addEventListener('click', () => popUp.classList.add('hidden'));
 
 // Search Bar Functionality
 searchBar.addEventListener('keyup', (e) => {
-    const userValue = searchBar.value;
-    const value = userValue.toLowerCase();
+    const value = searchBar.value.toLowerCase();
     const employees = mainSection.querySelectorAll('.employee-card');
 
     employees.forEach(employee => {
-      let name = employee.querySelector('.employee-name');
-      if (name.textContent.toLowerCase().includes(value)) {
+      let name = employee.querySelector('.employee-name').textContent.toLowerCase();
+      if (name.includes(value)) {
         employee.style.display = '';
       }
       else {

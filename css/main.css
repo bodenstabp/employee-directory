@@ -145,12 +145,6 @@ h3 {
   display: none;
 }
 
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
 body {
   background-color: #c5cbe3;
   color: #4056a1;
@@ -241,6 +235,12 @@ input::placeholder {
     justify-self: end;
   }
 }
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 .wrapper {
   font-family: "Montserrat", Arial, Helvetica, sans-serif;
 }
